@@ -18,7 +18,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Reader implements Serializable {
-    
+
     @Serial
     private static final long serialVersionUID = 9028797974864875247L;
     private Long id;

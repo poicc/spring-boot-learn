@@ -1,5 +1,6 @@
 package com.soft.boot.restful.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.AllArgsConstructor;
@@ -28,8 +29,8 @@ public class Article {
     private String author;
     private String content;
     private String title;
-//    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date crateTime;
-    private List<Reader> readers;
+    private List<Reader> readerList;
 //    private Date updateTime;
 }

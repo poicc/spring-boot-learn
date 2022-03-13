@@ -34,7 +34,7 @@ public class ArticleController {
 //                Reader.builder().name("aaa").age(12).build(),
 //        };
         List<Reader> readers1 = List.of(Reader.builder().name("aaa").age(12).build(), Reader.builder().name("aaa").age(12).build());
-        Article article = Article.builder().id(id).author("陈蓉琪").readers(readers1).content("SpringBoot 从青铜到王者").title("SpringBoot").crateTime(new Date()).build();
+        Article article = Article.builder().id(id).author("陈蓉琪").readerList(readers1).content("SpringBoot 从青铜到王者").title("SpringBoot").crateTime(new Date()).build();
         log.info("article:" + article);
         return AjaxResponse.success(article);
     }
@@ -46,7 +46,7 @@ public class ArticleController {
 //                Reader.builder().name("aaa").age(12).build(),
 //        };
         List<Reader> readers1 = List.of(Reader.builder().name("aaa").age(12).build(), Reader.builder().name("aaa").age(12).build());
-        Article article = Article.builder().id(id).author("陈蓉琪").readers(readers1).content("SpringBoot 从青铜到王者").title("SpringBoot").crateTime(new Date()).build();
+        Article article = Article.builder().id(id).author("陈蓉琪").readerList(readers1).content("SpringBoot 从青铜到王者").title("SpringBoot").crateTime(new Date()).build();
         log.info("article:" + article);
         return AjaxResponse.success(article);
     }
@@ -82,10 +82,10 @@ public class ArticleController {
      * @param article article
      * @return AjaxResponse
      */
-    @PostMapping("/articles")
+    @PostMapping("/articles/body")
     public AjaxResponse addArticle(@RequestBody Article article) {
         log.info("addArticle:" + article);
-        return AjaxResponse.success();
+        return AjaxResponse.success(article);
     }
 
     /**
