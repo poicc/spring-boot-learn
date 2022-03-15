@@ -1,0 +1,21 @@
+family:
+  family-name: "happy family"
+  father:
+    name: tom
+#    age: ${random.int(30)}
+    age: 30
+    email: 2631315464@qq.com
+
+  mother:
+    alias:
+      - rose
+      - alice
+  child:
+    name: jack
+    age: 6
+    friends:
+#      - {hobby: football,gender: male}
+      - hobby: football
+        gender: male
+      - hobby: sing
+        gender: female

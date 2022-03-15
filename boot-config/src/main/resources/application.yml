@@ -1,0 +1,33 @@
+#family:
+#  family-name: "happy family"
+#  father:
+#    name: tom
+##    age: ${random.int(30)}
+#    age: 30
+#    email: 2631315464@qq.com
+#
+#  mother:
+#    alias:
+#      - rose
+#      - alice
+#  child:
+#    name: jack
+#    age: 6
+#    friends:
+##      - {hobby: football,gender: male}
+#      - hobby: football
+#        gender: male
+#      - hobby: sing
+#        gender: female
+
+#指定需要的配置文件
+#spring:
+#  profiles:
+#    active: dev
+
+server:
+  port: 8888
+
+jasypt:
+  encryptor:
+    password: Y6M9fAJQdU7jNp5MW

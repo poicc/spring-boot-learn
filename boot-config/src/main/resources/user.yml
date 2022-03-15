@@ -1,0 +1,9 @@
+user:
+  name: "crq"
+  age: 12
+  password: i0yoGZqX05Yiqqv33tYSk26mA3PoZwqM
+  book:
+    name: poicc
+    price: 3
+    createTime: 2022-03-01
+#    isEnabled: true
