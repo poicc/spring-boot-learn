@@ -24,6 +24,7 @@
         <module>book-quickstart</module>
         <module>boot-restful</module>
         <module>boot-config</module>
+        <module>boot-orm</module>
     </modules>
 
     <dependencies>
