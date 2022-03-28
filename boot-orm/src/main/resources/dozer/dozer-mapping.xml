@@ -1,0 +1,15 @@
+<mappings xmlns="http://dozermapper.github.io/schema/bean-mapping"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://dozermapper.github.io/schema/bean-mapping https://dozermapper.github.io/schema/bean-mapping.xsd">
+    <configuration>
+        <date-format>yyyy-MM-dd HH:mm:ss</date-format>
+    </configuration>
+    <mapping>
+        <class-a>com.crq.boot.orm.dozer.TestA</class-a>
+        <class-b>com.crq.boot.orm.dozer.TestB</class-b>
+        <field>
+            <a>cTime</a>
+            <b>createTime</b>
+        </field>
+    </mapping>
+</mappings>

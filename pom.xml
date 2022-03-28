@@ -25,6 +25,7 @@
         <module>boot-restful</module>
         <module>boot-config</module>
         <module>boot-orm</module>
+        <module>boot-mybatis</module>
     </modules>
 
     <dependencies>
