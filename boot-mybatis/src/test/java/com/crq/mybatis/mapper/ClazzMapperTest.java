@@ -9,8 +9,6 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import javax.annotation.Resource;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 @SpringBootTest
 @ExtendWith(SpringExtension.class)
 @Slf4j
@@ -25,12 +23,11 @@ class ClazzMapperTest {
         log.info(clazz.getClazzId() + "," + clazz.getClazzName());
         clazz.getStudents().forEach(student -> log.info(String.valueOf(student)));
     }
-
     @Test
     void getClazz() {
         Clazz clazz = clazzMapper.getClazz(1);
         log.info(clazz.getClazzId() + "," + clazz.getClazzName());
-        log.info(clazz.getTeacher().getTeacherId() + "," + clazz.getTeacher().getTeacherName());
+        log.info(clazz.getTeacher().getTeacherId() + ',' + clazz.getTeacher().getTeacherName());
         clazz.getStudents().forEach(student -> log.info(String.valueOf(student)));
     }
 }

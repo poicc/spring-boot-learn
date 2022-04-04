@@ -26,6 +26,10 @@
         <module>boot-config</module>
         <module>boot-orm</module>
         <module>boot-mybatis</module>
+        <module>boot-resource-template</module>
+        <module>boot-multi-datasource</module>
+        <module>boot-rest</module>
+        <module>boot-filter-interceptor</module>
     </modules>
 
     <dependencies>

@@ -1,9 +1,11 @@
 package com.crq.mybatis.domain;
 
 import lombok.Data;
+import org.apache.ibatis.type.Alias;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * 
@@ -11,6 +13,7 @@ import java.io.Serializable;
  * @TableName t_course
  */
 @Data
+@Alias("Course")
 public class Course implements Serializable {
     /**
      * 课程id
@@ -21,6 +24,8 @@ public class Course implements Serializable {
      * 课程名称
      */
     private String courseName;
+
+    private List<Student> students;
 
     @Serial
     private static final long serialVersionUID = 1L;

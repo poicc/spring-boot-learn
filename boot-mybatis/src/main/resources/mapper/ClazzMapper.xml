@@ -23,14 +23,10 @@
           AND c.clazz_id = s.clazz_id
     </select>
     <select id="getClazz" resultMap="clazzMap">
-        SELECT c.clazz_id, c.clazz_name,t_teacher_id,t_teacher_name,s.student_id,s.student_name,s.hometown
+        SELECT c.clazz_id, c.clazz_name, t.teacher_id, t.teacher_name, s.student_id, s.student_name,s.hometown
         FROM t_clazz c
-                 LEFT JOIN
-             t_teacher t
-             ON c.clazz_id = t.clazz_id
-                  LEFT JOIN
-             t_student s
-            ON c.clazz_id = s.clazz_id
+                 LEFT JOIN t_teacher t ON c.clazz_id = t.clazz_id
+                 LEFT JOIN t_student s ON c.clazz_id = s.clazz_id
         WHERE c.clazz_id = #{clazzId}
     </select>
 </mapper>

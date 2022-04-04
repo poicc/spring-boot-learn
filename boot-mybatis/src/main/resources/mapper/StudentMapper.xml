@@ -21,17 +21,75 @@
     </resultMap>
 
 
-    <select id="findManyByOne" resultType="Student"></select>
-    <select id="getStudent" resultType="Student">
-        SELECT s.student_id,student_name,s.hometown,s.birthday,c.clazz_id,c.clazz_id,
-               c.clazz_name,cc.course_id,cc.course_name
-        FROM t_student s
-                 LEFT JOIN t_clazz c
-                            ON s.clazz_id = c.clazz_id
-                 LEFT JOIN t_course_student ts
-                           ON s.student_id = ts.student_id
-                 LEFT JOIN t_course cc
-                           ON ts.course_id = cc.course_id
+    <select id="findManyByOne" resultMap="studentMap">
+        SELECT s.student_id, s.student_name, s.hometown, s.birthday, c.clazz_id, c.clazz_name
+        FROM t_student s,
+             t_clazz c
         WHERE s.student_id = #{studentId}
+          AND s.clazz_id = c.clazz_id
+
     </select>
+
+    <select id="getStudent" resultMap="studentMap">
+        SELECT s.student_id,
+               s.student_name,
+               s.hometown,
+               s.birthday,
+               c.clazz_name,
+               c.clazz_id,
+               cc.course_id,
+               cc.course_name
+        FROM t_student s
+                 LEFT JOIN t_clazz c ON s.clazz_id = c.clazz_id
+                 LEFT JOIN t_course_student ts ON s.student_id = ts.student_id
+                 LEFT JOIN t_course cc ON ts.course_id = cc.course_id
+        WHERE s.student_id = #{studentId}
+
+    </select>
+
+
+    <insert id="batchInsert" parameterType="Student">
+        INSERT INTO t_student (clazz_id,student_name,hometown,birthday) VALUES
+        <foreach collection="students" item="student" index="index" separator=",">
+            (#{student.clazzId},#{student.studentName},#{student.hometown},#{student.birthday})
+        </foreach>
+    </insert>
+
+
+    <delete id="batchDelete" parameterType="integer">
+        DELETE FROM t_student
+        WHERE student_id IN
+        <foreach collection="ids" item="id" index="index" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+
+    <update id="batchUpdate" parameterType="java.util.List">
+        <foreach collection="students" item="student" index="index" open="" close="" separator=";">
+            UPDATE t_student t
+            <set>
+                t.student_name =#{student.studentName}
+            </set>
+            WHERE t.student_id= #{student.studentId}
+        </foreach>
+    </update>
+
+
+    <select id="findStudentBy" resultType="Student" parameterType="Student">
+        SELECT * FROM t_student
+        <where>
+            <if test="student.studentId !=null">
+                student_id = #{student.studentId}
+            </if>
+            <if test="student.studentName !=null">
+                student_name =#{student.studentName}
+            </if>
+            <if test="student.hometown !=null">
+                AND hometown LIKE concat('%',#{student.hometown},'%')
+            </if>
+        </where>
+    </select>
+
+
 </mapper>

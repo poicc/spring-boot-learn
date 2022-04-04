@@ -4,12 +4,25 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.crq.mybatis.mapper.CourseMapper">
 
-    <resultMap id="BaseResultMap" type="com.crq.mybatis.domain.Course">
+    <resultMap id="courseMap" type="Course">
             <id property="courseId" column="course_id" jdbcType="INTEGER"/>
             <result property="courseName" column="course_name" jdbcType="VARCHAR"/>
+        <collection property="students" ofType="Student">
+            <id column="student_id" property="studentId"/>
+            <result column="student_name" property="studentName"/>
+            <result column="hometown" property="hometown"/>
+        </collection>
     </resultMap>
 
-    <sql id="Base_Column_List">
-        course_id,course_name
-    </sql>
+    <select id="getCourse" resultMap="courseMap">
+        SELECT c.course_id, c.course_name,s.student_id,s.student_name,s.hometown
+        FROM t_course c
+                 LEFT JOIN
+             t_course_student cs
+             ON c.course_id = cs.course_id
+                 LEFT JOIN
+             t_student s
+             ON cs.student_id = s.student_id
+        WHERE c.course_id = #{courseId}
+    </select>
 </mapper>
