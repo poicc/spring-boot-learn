@@ -1,6 +1,5 @@
 package com.crq.boot.interceptor;
 
-import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -11,7 +10,7 @@ import javax.annotation.Resource;
  * @author: crq
  * @create: 2022-04-04 11:43
  **/
-@Configuration
+//@Configuration
 //extends WebMvcConfigurerAdapter已弃用
 public class MyWebMvcConfigurer implements WebMvcConfigurer {
     private final String[] excludePath = {"/static"};
@@ -20,6 +19,7 @@ public class MyWebMvcConfigurer implements WebMvcConfigurer {
 
     @Resource
     private AccessLogInterceptor accessLogInterceptor;
+
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         //注册拦截器 拦截规则

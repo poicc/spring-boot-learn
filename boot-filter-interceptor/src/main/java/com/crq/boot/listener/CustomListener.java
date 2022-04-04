@@ -3,7 +3,6 @@ package com.crq.boot.listener;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.servlet.*;
-import javax.servlet.annotation.WebListener;
 import javax.servlet.http.HttpSessionAttributeListener;
 import javax.servlet.http.HttpSessionBindingEvent;
 import javax.servlet.http.HttpSessionEvent;
@@ -15,7 +14,7 @@ import javax.servlet.http.HttpSessionListener;
  * @create: 2022-04-04 10:20
  **/
 @Slf4j
-@WebListener
+//@WebListener
 public class CustomListener implements ServletContextListener, HttpSessionListener, ServletRequestListener, ServletRequestAttributeListener, HttpSessionAttributeListener {
     @Override
     public void contextInitialized(ServletContextEvent sce) {

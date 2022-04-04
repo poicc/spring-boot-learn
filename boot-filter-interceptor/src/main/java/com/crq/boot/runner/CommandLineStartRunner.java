@@ -2,7 +2,6 @@ package com.crq.boot.runner;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 
@@ -11,7 +10,7 @@ import java.util.Arrays;
  * @author: crq
  * @create: 2022-04-04 15:47
  **/
-@Component
+//@Component
 @Slf4j
 public class CommandLineStartRunner implements CommandLineRunner {
     @Override

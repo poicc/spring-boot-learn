@@ -2,3 +2,20 @@
 #  web:
 #    resources:
 #      static-locations: classpath:/public/
+
+spring:
+  freemarker:
+    cache: false #缓存配置 开发阶段应该配置未false 因为经常会改
+    suffix: .ftl #模板文件后缀名
+    charset: UTF-8
+    template-loader-path: classpath:/templates/
+
+  thymeleaf:
+    cache: false
+    check-template-location: true #检查模板是否存在
+    enabled: true #是否启用
+    encoding: UTF-8
+    excluded-view-names: #应该从解析中排除的视图名称列表 用逗号分隔
+    mode: HTML5
+    prefix: classpath:/templates/
+    suffix: .html

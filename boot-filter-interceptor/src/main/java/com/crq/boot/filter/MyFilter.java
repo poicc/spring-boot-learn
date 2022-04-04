@@ -3,6 +3,7 @@ package com.crq.boot.filter;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.servlet.*;
+import javax.servlet.annotation.WebFilter;
 import java.io.IOException;
 
 /**
@@ -10,7 +11,7 @@ import java.io.IOException;
  * @author: crq
  * @create: 2022-04-04 11:03
  **/
-//@WebFilter(filterName = "myFilter",urlPatterns = {"/*"})
+@WebFilter(filterName = "myFilter",urlPatterns = {"/*"})
 @Slf4j
 public class MyFilter implements Filter{
 

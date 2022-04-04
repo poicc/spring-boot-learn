@@ -15,7 +15,7 @@ import java.util.Arrays;
  * @author: crq
  * @create: 2022-04-04 15:54
  **/
-@Configuration
+//@Configuration
 @Slf4j
 public class BeanRunner {
     @Bean
