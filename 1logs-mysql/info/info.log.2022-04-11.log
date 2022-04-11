@@ -1,0 +1,150 @@
+2022-04-11 17:01:25.643 [main] ERROR org.springframework.boot.SpringApplication - Application run failed
+java.lang.IllegalStateException: java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.joran.action.AppenderAction - Could not create an Appender of type [ch.qos.logback.classic.db.DBAppender]. ch.qos.logback.core.util.DynamicClassLoadingException: Failed to instantiate type ch.qos.logback.classic.db.DBAppender
+ERROR in ch.qos.logback.core.joran.spi.Interpreter@57:89 - ActionException in Action for tag [appender] ch.qos.logback.core.joran.spi.ActionException: ch.qos.logback.core.util.DynamicClassLoadingException: Failed to instantiate type ch.qos.logback.classic.db.DBAppender
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [db_classic_mysql_pool]. Did you define it below instead of above in the configuration file?
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:328)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initialize(LoggingApplicationListener.java:282)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEnvironmentPreparedEvent(LoggingApplicationListener.java:240)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEvent(LoggingApplicationListener.java:216)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:176)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:169)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:143)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:131)
+	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:85)
+	at org.springframework.boot.SpringApplicationRunListeners.lambda$environmentPrepared$2(SpringApplicationRunListeners.java:66)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:120)
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:114)
+	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:65)
+	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:339)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:297)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1312)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301)
+	at com.crq.boot.LogApplication.main(LogApplication.java:15)
+Caused by: java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.joran.action.AppenderAction - Could not create an Appender of type [ch.qos.logback.classic.db.DBAppender]. ch.qos.logback.core.util.DynamicClassLoadingException: Failed to instantiate type ch.qos.logback.classic.db.DBAppender
+ERROR in ch.qos.logback.core.joran.spi.Interpreter@57:89 - ActionException in Action for tag [appender] ch.qos.logback.core.joran.spi.ActionException: ch.qos.logback.core.util.DynamicClassLoadingException: Failed to instantiate type ch.qos.logback.classic.db.DBAppender
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [db_classic_mysql_pool]. Did you define it below instead of above in the configuration file?
+ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.loadConfiguration(LogbackLoggingSystem.java:179)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initializeWithSpecificConfig(AbstractLoggingSystem.java:66)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initialize(AbstractLoggingSystem.java:57)
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.initialize(LogbackLoggingSystem.java:132)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:316)
+	... 18 common frames omitted
+2022-04-11 17:03:57.241 [main] INFO  com.crq.boot.LogApplication - Starting LogApplication using Java 17 on poi with PID 14660 (D:\study\spring-boot\spring-boot-learning\boot-log\target\classes started by crq in D:\study\spring-boot\spring-boot-learning)
+2022-04-11 17:03:57.372 [main] INFO  com.crq.boot.LogApplication - No active profile set, falling back to 1 default profile: "default"
+2022-04-11 17:03:59.549 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2022-04-11 17:03:59.895 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2387 ms
+2022-04-11 17:04:00.893 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2022-04-11 17:04:00.946 [main] INFO  com.crq.boot.LogApplication - Started LogApplication in 6.327 seconds (JVM running for 8.074)
+2022-04-11 17:04:41.653 [main] INFO  com.crq.boot.LogApplication - Starting LogApplication using Java 17 on poi with PID 21380 (D:\study\spring-boot\spring-boot-learning\boot-log\target\classes started by crq in D:\study\spring-boot\spring-boot-learning)
+2022-04-11 17:04:41.725 [main] INFO  com.crq.boot.LogApplication - No active profile set, falling back to 1 default profile: "default"
+2022-04-11 17:04:42.559 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2022-04-11 17:04:42.641 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 849 ms
+2022-04-11 17:04:42.930 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2022-04-11 17:04:42.946 [main] INFO  com.crq.boot.LogApplication - Started LogApplication in 2.306 seconds (JVM running for 2.967)
+2022-04-11 17:04:49.233 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2022-04-11 17:04:49.243 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2022-04-11 17:04:49.272 [http-nio-8080-exec-1] DEBUG com.crq.boot.controller.LogTestController - debug日志
+2022-04-11 17:04:49.278 [http-nio-8080-exec-1] INFO  com.crq.boot.controller.LogTestController - info日志
+2022-04-11 17:04:49.288 [http-nio-8080-exec-1] WARN  com.crq.boot.controller.LogTestController - warn日志
+2022-04-11 17:04:49.296 [http-nio-8080-exec-1] ERROR com.crq.boot.controller.LogTestController - error日志
+2022-04-11 17:07:39.300 [http-nio-8080-exec-3] DEBUG com.crq.boot.controller.LogTestController - debug日志
+2022-04-11 17:07:39.329 [http-nio-8080-exec-3] INFO  com.crq.boot.controller.LogTestController - info日志
+2022-04-11 17:07:39.347 [http-nio-8080-exec-3] WARN  com.crq.boot.controller.LogTestController - warn日志
+2022-04-11 17:07:39.364 [http-nio-8080-exec-3] ERROR com.crq.boot.controller.LogTestController - error日志
+2022-04-11 20:18:59.259 [main] INFO  com.crq.boot.LogApplication - Starting LogApplication using Java 17 on poi with PID 9064 (D:\study\spring-boot\spring-boot-learning\boot-log\target\classes started by crq in D:\study\spring-boot\spring-boot-learning)
+2022-04-11 20:18:59.342 [main] INFO  com.crq.boot.LogApplication - No active profile set, falling back to 1 default profile: "default"
+2022-04-11 20:19:01.822 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2022-04-11 20:19:02.077 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2543 ms
+2022-04-11 20:19:03.172 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2022-04-11 20:19:03.211 [main] INFO  com.crq.boot.LogApplication - Started LogApplication in 5.833 seconds (JVM running for 6.814)
+2022-04-11 20:19:17.872 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2022-04-11 20:19:17.876 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2022-04-11 20:19:17.900 [http-nio-8080-exec-1] DEBUG com.crq.boot.controller.LogTestController - debug日志
+2022-04-11 20:19:17.903 [http-nio-8080-exec-1] INFO  com.crq.boot.controller.LogTestController - info日志
+2022-04-11 20:19:17.905 [http-nio-8080-exec-1] WARN  com.crq.boot.controller.LogTestController - warn日志
+2022-04-11 20:19:17.907 [http-nio-8080-exec-1] ERROR com.crq.boot.controller.LogTestController - error日志
+2022-04-11 20:20:40.648 [main] INFO  com.crq.boot.LogApplication - Starting LogApplication using Java 17 on poi with PID 14408 (D:\study\spring-boot\spring-boot-learning\boot-log\target\classes started by crq in D:\study\spring-boot\spring-boot-learning)
+2022-04-11 20:20:40.850 [main] INFO  com.crq.boot.LogApplication - No active profile set, falling back to 1 default profile: "default"
+2022-04-11 20:20:43.164 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2022-04-11 20:20:43.398 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2375 ms
+2022-04-11 20:20:44.186 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2022-04-11 20:20:44.218 [main] INFO  com.crq.boot.LogApplication - Started LogApplication in 6.516 seconds (JVM running for 8.271)
+2022-04-11 20:20:47.173 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2022-04-11 20:20:47.187 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2022-04-11 20:20:47.240 [http-nio-8080-exec-1] DEBUG com.crq.boot.controller.LogTestController - debug日志
+2022-04-11 20:20:47.253 [http-nio-8080-exec-1] INFO  com.crq.boot.controller.LogTestController - info日志
+2022-04-11 20:20:47.267 [http-nio-8080-exec-1] WARN  com.crq.boot.controller.LogTestController - warn日志
+2022-04-11 20:20:47.278 [http-nio-8080-exec-1] ERROR com.crq.boot.controller.LogTestController - error日志
+2022-04-11 20:29:07.415 [main] INFO  com.crq.boot.LogApplication - Starting LogApplication using Java 17 on poi with PID 25448 (D:\study\spring-boot\spring-boot-learning\boot-log\target\classes started by crq in D:\study\spring-boot\spring-boot-learning)
+2022-04-11 20:29:07.527 [main] INFO  com.crq.boot.LogApplication - No active profile set, falling back to 1 default profile: "default"
+2022-04-11 20:29:09.485 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.crq.boot]' package. Please check your configuration.
+2022-04-11 20:29:11.724 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2022-04-11 20:29:12.168 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4464 ms
+2022-04-11 20:29:13.858 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception; nested exception is org.springframework.boot.autoconfigure.jdbc.DataSourceProperties$DataSourceBeanCreationException: Failed to determine a suitable driver class
+2022-04-11 20:29:13.927 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-04-11 20:29:13.992 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
+
+Reason: Failed to determine a suitable driver class
+
+
+Action:
+
+Consider the following:
+	If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.
+	If you have database settings to be loaded from a particular profile you may need to activate it (no profiles are currently active).
+
+2022-04-11 20:30:08.609 [main] INFO  com.crq.boot.LogApplication - Starting LogApplication using Java 17 on poi with PID 15520 (D:\study\spring-boot\spring-boot-learning\boot-log\target\classes started by crq in D:\study\spring-boot\spring-boot-learning)
+2022-04-11 20:30:08.740 [main] INFO  com.crq.boot.LogApplication - No active profile set, falling back to 1 default profile: "default"
+2022-04-11 20:30:10.833 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2022-04-11 20:30:11.070 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2148 ms
+2022-04-11 20:30:11.859 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2022-04-11 20:30:11.889 [main] INFO  com.crq.boot.LogApplication - Started LogApplication in 5.452 seconds (JVM running for 7.071)
+2022-04-11 20:38:52.271 [main] INFO  com.crq.boot.LogApplication - Starting LogApplication using Java 17 on poi with PID 7288 (D:\study\spring-boot\spring-boot-learning\boot-log\target\classes started by crq in D:\study\spring-boot\spring-boot-learning)
+2022-04-11 20:38:52.375 [main] INFO  com.crq.boot.LogApplication - No active profile set, falling back to 1 default profile: "default"
+2022-04-11 20:38:55.427 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2022-04-11 20:38:55.689 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3091 ms
+2022-04-11 20:38:56.588 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2022-04-11 20:38:56.623 [main] INFO  com.crq.boot.LogApplication - Started LogApplication in 7.551 seconds (JVM running for 10.166)
+2022-04-11 20:39:14.044 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2022-04-11 20:39:14.050 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2022-04-11 20:39:14.091 [http-nio-8080-exec-2] WARN  o.s.w.s.m.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' not supported]
+2022-04-11 20:39:23.725 [http-nio-8080-exec-3] INFO  com.crq.boot.controller.LogTestController - - article:Article(id=1, author=陈蓉琪, content=SpringBoot 从青铜到王者, title=SpringBoot, crateTime=Mon Apr 11 20:39:23 CST 2022, readerList=[Reader(id=null, name=aaa, age=12), Reader(id=null, name=aaa, age=12)])
+2022-04-11 20:39:59.561 [main] INFO  com.crq.boot.LogApplication - Starting LogApplication using Java 17 on poi with PID 22892 (D:\study\spring-boot\spring-boot-learning\boot-log\target\classes started by crq in D:\study\spring-boot\spring-boot-learning)
+2022-04-11 20:39:59.642 [main] INFO  com.crq.boot.LogApplication - No active profile set, falling back to 1 default profile: "default"
+2022-04-11 20:40:01.885 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2022-04-11 20:40:02.099 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2302 ms
+2022-04-11 20:40:02.910 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2022-04-11 20:40:02.937 [main] INFO  com.crq.boot.LogApplication - Started LogApplication in 6.781 seconds (JVM running for 9.054)
+2022-04-11 20:40:20.865 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2022-04-11 20:40:20.875 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2022-04-11 20:40:20.978 [http-nio-8080-exec-2] INFO  com.crq.boot.controller.LogTestController - - article:Article(id=1, author=陈蓉琪, content=SpringBoot 从青铜到王者, title=SpringBoot, crateTime=Mon Apr 11 20:40:20 CST 2022, readerList=[Reader(id=null, name=aaa, age=12), Reader(id=null, name=aaa, age=12)])
+2022-04-11 20:40:53.509 [http-nio-8080-exec-3] WARN  o.s.w.s.m.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2022-04-11 20:41:05.980 [http-nio-8080-exec-4] INFO  com.crq.boot.controller.LogTestController - - article:Article(id=1, author=陈蓉琪, content=SpringBoot 从青铜到王者, title=SpringBoot, crateTime=Mon Apr 11 20:41:05 CST 2022, readerList=[Reader(id=null, name=aaa, age=12), Reader(id=null, name=aaa, age=12)])
+2022-04-11 20:41:55.337 [http-nio-8080-exec-5] WARN  o.s.w.s.m.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'id' for method parameter type Long is not present]
+2022-04-11 20:42:26.577 [http-nio-8080-exec-8] INFO  com.crq.boot.controller.LogTestController - - saveArticle:crq
+2022-04-11 20:42:26.585 [http-nio-8080-exec-8] INFO  com.crq.boot.controller.LogTestController - - saveArticle:12
+2022-04-11 20:42:26.593 [http-nio-8080-exec-8] INFO  com.crq.boot.controller.LogTestController - - saveArticle:12
+2022-04-11 20:42:26.599 [http-nio-8080-exec-8] INFO  com.crq.boot.controller.LogTestController - - saveArticle:Sun Oct 23 22:12:12 CST 2022
+2022-04-11 20:47:36.132 [http-nio-8080-exec-1] INFO  com.crq.boot.controller.LogTestController - - saveArticle:crq
+2022-04-11 20:47:36.149 [http-nio-8080-exec-1] INFO  com.crq.boot.controller.LogTestController - - saveArticle:12
+2022-04-11 20:47:36.170 [http-nio-8080-exec-1] INFO  com.crq.boot.controller.LogTestController - - saveArticle:12
+2022-04-11 20:47:36.182 [http-nio-8080-exec-1] INFO  com.crq.boot.controller.LogTestController - - saveArticle:Sun Oct 23 22:12:12 CST 2022
+2022-04-11 20:50:55.537 [http-nio-8080-exec-4] INFO  com.crq.boot.controller.LogTestController - - saveArticle:crq
+2022-04-11 20:50:55.559 [http-nio-8080-exec-4] INFO  com.crq.boot.controller.LogTestController - - saveArticle:12
+2022-04-11 20:50:55.577 [http-nio-8080-exec-4] INFO  com.crq.boot.controller.LogTestController - - saveArticle:12
+2022-04-11 20:50:55.597 [http-nio-8080-exec-4] INFO  com.crq.boot.controller.LogTestController - - saveArticle:Sun Oct 23 22:12:12 CST 2022

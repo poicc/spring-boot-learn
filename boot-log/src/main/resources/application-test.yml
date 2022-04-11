@@ -1,21 +1,25 @@
 server:
   port: 8082
+
+logging:
+  config: classpath:log4j2-test.xml
+
 #logging:
 #  level: {
 #     com.crq.boot.controller: trace
 #  }
-logging:
-  level:
-    root: info
-    com.crq.boot.controller: trace
-  file:
-    #    path: D:\study\spring-boot\spring-boot-learning\boot-log\logs
-    name: D:\study\spring-boot\spring-boot-learning\boot-log\boot-log.log
-  logback:
-    rollingpolicy:
-      max-file-size: 1MB
-      max-history: 7
-  pattern:
-    console: '%red(%d{yyyy-MM-dd HH:mm:ss}) %green([%thread]) %highlight(%-5level) %boldMagenta(%logger{10}) - %cyan(%msg%n)'
-    file: '%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger : %msg%n'
+#logging:
+#  level:
+#    root: info
+#    com.crq.boot.controller: trace
+#  file:
+#    #    path: D:\study\spring-boot\spring-boot-learning\boot-log\logs
+#    name: D:\study\spring-boot\spring-boot-learning\boot-log\boot-log.log
+#  logback:
+#    rollingpolicy:
+#      max-file-size: 1MB
+#      max-history: 7
+#  pattern:
+#    console: '%red(%d{yyyy-MM-dd HH:mm:ss}) %green([%thread]) %highlight(%-5level) %boldMagenta(%logger{10}) - %cyan(%msg%n)'
+#    file: '%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger : %msg%n'
 

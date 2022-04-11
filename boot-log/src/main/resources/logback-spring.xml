@@ -1,65 +1,65 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<configuration>
-    <!--引入默认的一些设置-->
-    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
-    <!--web信息-->
-    <logger name="org.springframework.web" level="info"/>
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<configuration>-->
+<!--    &lt;!&ndash;引入默认的一些设置&ndash;&gt;-->
+<!--    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>-->
+<!--    &lt;!&ndash;web信息&ndash;&gt;-->
+<!--    <logger name="org.springframework.web" level="info"/>-->
 
-    <!--写入日志到控制台的appender,去掉charset,否则有可能Windows系统下tomcat下乱码-->
-    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder>
-            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
-        </encoder>
-    </appender>
+<!--    &lt;!&ndash;写入日志到控制台的appender,去掉charset,否则有可能Windows系统下tomcat下乱码&ndash;&gt;-->
+<!--    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">-->
+<!--        <encoder>-->
+<!--            <pattern>${CONSOLE_LOG_PATTERN}</pattern>-->
+<!--        </encoder>-->
+<!--    </appender>-->
 
-    <!--定义日志文件的存储地址，不要在 LogBack 的配置中使用相对路径-->
-    <property name="LOG_PATH" value="D:\study\spring-boot\spring-boot-learning\boot-log\logs"/>
+<!--    &lt;!&ndash;定义日志文件的存储地址，不要在 LogBack 的配置中使用相对路径&ndash;&gt;-->
+<!--    <property name="LOG_PATH" value="D:\study\spring-boot\spring-boot-learning\boot-log\logs"/>-->
 
-    <!--写入日志到文件的appender-->
-    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <!--日志文件输出的文件名,每天一个文件-->
-            <FileNamePattern>${LOG_PATH}/%d{yyyy-MM-dd}.log</FileNamePattern>
-            <!--日志文件保留天数-->
-            <maxHistory>30</maxHistory>
-        </rollingPolicy>
-        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
-        </encoder>
-        <!--日志文件最大的大小-->
-        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
-            <MaxFileSize>10MB</MaxFileSize>
-        </triggeringPolicy>
-    </appender>
+<!--    &lt;!&ndash;写入日志到文件的appender&ndash;&gt;-->
+<!--    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
+<!--        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
+<!--            &lt;!&ndash;日志文件输出的文件名,每天一个文件&ndash;&gt;-->
+<!--            <FileNamePattern>${LOG_PATH}/%d{yyyy-MM-dd}.log</FileNamePattern>-->
+<!--            &lt;!&ndash;日志文件保留天数&ndash;&gt;-->
+<!--            <maxHistory>30</maxHistory>-->
+<!--        </rollingPolicy>-->
+<!--        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">-->
+<!--            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>-->
+<!--        </encoder>-->
+<!--        &lt;!&ndash;日志文件最大的大小&ndash;&gt;-->
+<!--        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">-->
+<!--            <MaxFileSize>10MB</MaxFileSize>-->
+<!--        </triggeringPolicy>-->
+<!--    </appender>-->
 
-    <!--异步写日志到文件-->
-    <appender name="asyncFileAppender" class="ch.qos.logback.classic.AsyncAppender">
-        <discardingThreshold>0</discardingThreshold>
-        <queueSize>500</queueSize>
-        <appender-ref ref="FILE"/>
-    </appender>
+<!--    &lt;!&ndash;异步写日志到文件&ndash;&gt;-->
+<!--    <appender name="asyncFileAppender" class="ch.qos.logback.classic.AsyncAppender">-->
+<!--        <discardingThreshold>0</discardingThreshold>-->
+<!--        <queueSize>500</queueSize>-->
+<!--        <appender-ref ref="FILE"/>-->
+<!--    </appender>-->
 
-    <!--生产环境:打印控制台和输出到文件-->
-    <springProfile name="prod">
-        <root level="info">
-            <appender-ref ref="FILE"/>
-            <!--<appender-ref ref="asyncFileAppender"/>-->
-        </root>
-    </springProfile>
+<!--    &lt;!&ndash;生产环境:打印控制台和输出到文件&ndash;&gt;-->
+<!--    <springProfile name="prod">-->
+<!--        <root level="info">-->
+<!--            <appender-ref ref="FILE"/>-->
+<!--            &lt;!&ndash;<appender-ref ref="asyncFileAppender"/>&ndash;&gt;-->
+<!--        </root>-->
+<!--    </springProfile>-->
 
-    <!--开发环境:打印控制台-->
-    <springProfile name="dev">
-        <!-- 打印sql -->
-        <logger name="com.crq.boot.controller" level="DEBUG"/>
-        <root level="DEBUG">
-            <appender-ref ref="CONSOLE"/>
-        </root>
-    </springProfile>
+<!--    &lt;!&ndash;开发环境:打印控制台&ndash;&gt;-->
+<!--    <springProfile name="dev">-->
+<!--        &lt;!&ndash; 打印sql &ndash;&gt;-->
+<!--        <logger name="com.crq.boot.controller" level="DEBUG"/>-->
+<!--        <root level="DEBUG">-->
+<!--            <appender-ref ref="CONSOLE"/>-->
+<!--        </root>-->
+<!--    </springProfile>-->
 
-    <!--测试环境:打印控制台-->
-    <springProfile name="test">
-        <root level="info">
-            <appender-ref ref="CONSOLE"/>
-        </root>
-    </springProfile>
-</configuration>
+<!--    &lt;!&ndash;测试环境:打印控制台&ndash;&gt;-->
+<!--    <springProfile name="test">-->
+<!--        <root level="info">-->
+<!--            <appender-ref ref="CONSOLE"/>-->
+<!--        </root>-->
+<!--    </springProfile>-->
+<!--</configuration>-->

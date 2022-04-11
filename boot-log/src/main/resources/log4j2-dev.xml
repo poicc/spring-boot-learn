@@ -2,7 +2,7 @@
 <!--<configuration>-->
 <!--    <properties>-->
 <!--        &lt;!&ndash;日志输出位置&ndash;&gt;-->
-<!--        <property name="LOG_HOME">D:\study\spring-boot\spring-boot-learning\boot-log\log4j2-logs</property>-->
+<!--        <property name="LOG_HOME">D:\1\logs</property>-->
 <!--    </properties>-->
 
 <!--    <Appenders>-->
@@ -41,6 +41,6 @@
 <!--        &lt;!&ndash;spring日志&ndash;&gt;-->
 <!--        <Logger name="org.springframework" level="info"/>-->
 <!--        &lt;!&ndash; mybatis日志 &ndash;&gt;-->
-<!--        <Logger name="com.mybatis" level="warn"/>-->
+<!--&lt;!&ndash;        <Logger name="com.mybatis" level="warn"/>&ndash;&gt;-->
 <!--    </Loggers>-->
 <!--</configuration>-->

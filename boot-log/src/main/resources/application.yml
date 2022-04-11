@@ -1,6 +1,18 @@
 server:
   port: 8080
 
-spring:
-  profiles:
-    active: des
+
+logging:
+  config: classpath:logback-mysql.xml
+  level:
+    com.crq.boot.controller: debug
+
+
+#logging:
+#  level: {
+#     com.crq.boot.controller: trace
+#  }
+
+#spring:
+#  profiles:
+#    active: dev

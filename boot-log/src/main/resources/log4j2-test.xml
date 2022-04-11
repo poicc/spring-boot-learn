@@ -1,0 +1,46 @@
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<configuration>-->
+<!--    <properties>-->
+<!--        &lt;!&ndash;日志输出位置&ndash;&gt;-->
+<!--        <property name="LOG_HOME">D:\1\log</property>-->
+<!--    </properties>-->
+
+<!--    <Appenders>-->
+<!--        &lt;!&ndash; 将日志输出到控制台&ndash;&gt;-->
+<!--        <Console name="CONSOLE" target="SYSTEM_OUT">-->
+<!--            &lt;!&ndash;设置日志格式及颜色&ndash;&gt;-->
+<!--            <PatternLayout-->
+<!--                    pattern="[%style{%d}{bright,green}][%highlight{%p}][%style{%t}{bright,blue}][%style{%C}{bright,yellow}]: %msg%n%style{%throwable}{red}"-->
+<!--                    disableAnsi="false" noConsoleNoAnsi="false"/>-->
+<!--        </Console>-->
+
+<!--        &lt;!&ndash; 将日志输出到文件&ndash;&gt;-->
+<!--        <RollingFile name="FILE-APPENDER"-->
+<!--                     fileName="${LOG_HOME}/log4j2-demo.log"-->
+<!--                     filePattern="${LOG_HOME}/log4j2-demo-%d{yyyy-MM-dd}-%i.log">-->
+<!--            &lt;!&ndash;设置日志格式&ndash;&gt;-->
+<!--            <PatternLayout>-->
+<!--                <pattern>[%d][%p][%t][%C] %m%n</pattern>-->
+<!--            </PatternLayout>-->
+<!--            <Policies>-->
+<!--                &lt;!&ndash; 设置日志文件切分参数 &ndash;&gt;-->
+<!--                <SizeBasedTriggeringPolicy size="100 MB"/>-->
+<!--                <TimeBasedTriggeringPolicy/>-->
+<!--            </Policies>-->
+<!--            &lt;!&ndash;设置最大存档数&ndash;&gt;-->
+<!--            <DefaultRolloverStrategy max="20"/>-->
+<!--        </RollingFile>-->
+<!--    </Appenders>-->
+
+<!--    <Loggers>-->
+<!--        &lt;!&ndash; 根日志设置 &ndash;&gt;-->
+<!--        <Root level="debug">-->
+<!--            <AppenderRef ref="CONSOLE" level="debug"/>-->
+<!--&lt;!&ndash;            <AppenderRef ref="FILE-APPENDER" level="info"/>&ndash;&gt;-->
+<!--        </Root>-->
+<!--        &lt;!&ndash;spring日志&ndash;&gt;-->
+<!--        <Logger name="org.springframework" level="info"/>-->
+<!--        &lt;!&ndash; mybatis日志 &ndash;&gt;-->
+<!--        <Logger name="com.mybatis" level="warn"/>-->
+<!--    </Loggers>-->
+<!--</configuration>-->
