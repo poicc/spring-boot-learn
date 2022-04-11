@@ -1,0 +1,7 @@
+server:
+  port: 8888
+  httpPort: 80
+  ssl:
+    key-store: crq-ssl-key.p12
+    key-store-password: 123456
+    key-store-type: PKCS12

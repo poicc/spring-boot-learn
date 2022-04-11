@@ -30,6 +30,9 @@
         <module>boot-multi-datasource</module>
         <module>boot-rest</module>
         <module>boot-filter-interceptor</module>
+        <module>boot-tomcat</module>
+        <module>boot-exception</module>
+        <module>boot-log</module>
     </modules>
 
     <dependencies>
