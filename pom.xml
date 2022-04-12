@@ -33,6 +33,7 @@
         <module>boot-tomcat</module>
         <module>boot-exception</module>
         <module>boot-log</module>
+        <module>boot-task</module>
     </modules>
 
     <dependencies>
