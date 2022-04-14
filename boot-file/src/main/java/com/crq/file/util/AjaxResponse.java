@@ -1,14 +1,13 @@
-package com.crq.boot.utils;
+package com.crq.file.util;
 
 
-import com.crq.boot.enums.CustomExceptionType;
-import com.crq.boot.exception.CustomException;
+
 import lombok.Data;
 
 /**
  * @program: spring-boot-learning
  * @description:
- * @author: crq
+ * @author: ycshang
  * @create: 2022-04-11 10:49
  **/
 @Data

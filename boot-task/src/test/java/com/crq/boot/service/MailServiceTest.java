@@ -23,15 +23,15 @@ class MailServiceTest {
 
     @Test
     public void sendHtml() throws MessagingException {
-        mailService.sendHtmlMail("2631315464@qq.co","一封HTML测试邮件", """
+        mailService.sendHtmlMail("2560507398@qq.com","一封HTML测试邮件", """
                 <body><div>芜湖</div></body>
                 """);
     }
 
     @Test
     public void sendAttachmentsMail() throws MessagingException {
-        String filePath = "D:/1/img/1.jpg";
-        mailService.sendAttachmentsMail("2631315464@qq.com","这是一封带附件的邮箱","邮件中有附件",filePath);
+        String filePath = "D:\\1\\img\\1.jpg";
+        mailService.sendAttachmentsMail("2560507398@qq.com","这是一封带附件的邮箱","邮件中有附件",filePath);
     }
 
 }

@@ -1,0 +1,21 @@
+file:
+  upload-path: D:\1\img\
+
+spring:
+  web:
+    resources:
+      static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,file:${file.upload-path}
+
+
+
+crq:
+  fastdfs:
+    httpserver: http://139.196.153.80:8888/ # 在使用FastDFSClientUtil会得到完整的http文件访问路径
+    connect_timeout: 5
+    network_timeout: 30
+    charset: UTF-8
+    tracker_server: # tracker_server 可以配置成数组
+      - 139.196.153.80:22122
+    max_total: 50
+    http_anti_steal_token: false # 如果有防盗链的话，这里true
+    http_secret_key: # 有防盗链，这里填secret_key

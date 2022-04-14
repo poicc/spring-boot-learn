@@ -34,6 +34,7 @@
         <module>boot-exception</module>
         <module>boot-log</module>
         <module>boot-task</module>
+        <module>boot-file</module>
     </modules>
 
     <dependencies>
