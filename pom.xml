@@ -35,6 +35,9 @@
         <module>boot-log</module>
         <module>boot-task</module>
         <module>boot-file</module>
+        <module>boot-actuator</module>
+        <module>boot-admin</module>
+        <module>boot-redis</module>
     </modules>
 
     <dependencies>

@@ -1,17 +1,16 @@
-package com.crq.boot.orm;
+package com.crq.boot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cache.annotation.EnableCaching;
 
 /**
  * @description:
  * @author: crq
- * @create: 2022-03-18 08:29
+ * @create: 2022-04-15 08:50
  **/
 @SpringBootApplication
-public class OrmApplication {
+public class ActuatorApplication {
     public static void main(String[] args) {
-        SpringApplication.run(OrmApplication.class);
+        SpringApplication.run(ActuatorApplication.class,args);
     }
 }

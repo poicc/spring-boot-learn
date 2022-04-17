@@ -1,17 +1,19 @@
-package com.crq.boot.orm;
+package com.crq.boot;
 
+import de.codecentric.boot.admin.server.config.EnableAdminServer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cache.annotation.EnableCaching;
 
 /**
  * @description:
  * @author: crq
- * @create: 2022-03-18 08:29
+ * @create: 2022-04-15 09:27
  **/
 @SpringBootApplication
-public class OrmApplication {
+@EnableAdminServer
+public class AdminApplication {
     public static void main(String[] args) {
-        SpringApplication.run(OrmApplication.class);
+        SpringApplication.run(AdminApplication.class,args);
     }
+
 }
