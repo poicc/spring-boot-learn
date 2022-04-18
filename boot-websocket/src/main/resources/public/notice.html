@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <title>websocket页面</title>
+    <style>
+        body {
+            background-color: #9fc1da;
+            display: flex;
+            width: 100vw;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .animated-fill-button {
+            padding: 10px;
+            border-radius: 4px;
+            background: #fff;
+            color: #49aaf8;
+            border: 1px solid #49aaf8;
+            cursor: pointer;
+            transition: 0.3s all ease-in-out;
+        }
+
+        .animated-fill-button:hover {
+            background: #49aaf8;
+            color: #fff;
+        }
+
+        .ripple-loader {
+            position: relative;
+            width: 168px;
+            height: 168px;
+        }
+
+        .ripple-loader div {
+            position: absolute;
+            border: 4px solid #2b5959;
+            border-radius: 50%;
+            animation: ripple-loader 1s ease-out infinite;
+        }
+
+        .ripple-loader div:nth-child(2) {
+            animation-delay: -1s;
+        }
+
+        @keyframes ripple-loader {
+            0% {
+                top: 64px;
+                left: 64px;
+                width: 0;
+                height: 0;
+                opacity: 1;
+            }
+
+            100% {
+                top: 0;
+                left: 0;
+                width: 128px;
+                height: 128px;
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div class="ripple-loader" v-if="!show">
+        <div></div>
+        <div></div>
+    </div>
+
+    <button v-else class="animated-fill-button" @click="open">连接websocket</button>
+
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+
+<script>
+    const vm = new Vue({
+        el: "#app",
+        data() {
+            return {
+                ws: null,
+                content: "",
+                message: "显示消息",
+                nickname: "",
+                show: true
+            }
+        },
+        methods: {
+            open() {
+                this.ws = new WebSocket(`ws://localhost:8888/socket/2`)
+                this.ws.onopen = () => {
+                    this.$message('连接成功');
+                    this.show = false
+                }
+                this.ws.onclose = () => {
+                    console.log("websocket已经关闭")
+                }
+                this.ws.onerror = () => {
+                    console.log("websocket出现异常")
+                }
+                this.ws.onmessage = (res) => {
+                    this.$notify.info({
+                        title: '消息',
+                        message: res.data,
+                        duration: 0
+                    });
+                }
+            },
+            sendMsg() {
+                this.ws.send(this.content)
+                console.log("发送成功")
+                this.content = ""
+            }
+        }
+    })
+
+</script>
+</body>
+</html>

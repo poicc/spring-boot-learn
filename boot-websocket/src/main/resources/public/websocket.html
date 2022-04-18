@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <title>websocket页面</title>
+</head>
+<body>
+<div id="app">
+    <div>
+        <label>
+            输入昵称
+            <input type="text" v-model="nickname"/>
+        </label>
+        <button @click="open">连接websocket</button>
+    </div>
+    <div>
+        <label>
+            输入内容
+            <input type="text" v-model="content"/>
+        </label>
+        <button @click="sendMsg">发送消息</button>
+    </div>
+    <div>
+        {{ message }}
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+
+<script>
+    const vm = new Vue({
+        el: "#app",
+        data() {
+            return {
+                ws: null,
+                content: "",
+                message: "显示消息",
+                nickname: ""
+            }
+        },
+        methods:{
+            open() {
+                // if(this.nickname === "") {
+                //     alert("昵称不能为空");
+                //     return;
+                // }
+                // this.ws = new WebSocket(`ws://localhost:8888/websocket?nickname=${this.nickname}`)
+                this.ws = new WebSocket(`ws://localhost:8888/socket/2`)
+                this.ws.onopen = ()=> {
+                    console.log("websocket已经连接")
+                }
+                this.ws.onclose = () => {
+                    console.log("websocket已经关闭")
+                }
+                this.ws.onerror = () => {
+                    console.log("websocket出现异常")
+                }
+                this.ws.onmessage = (res) => {
+                    console.log(res)
+                    this.message = this.message.concat(res.data + "/n")
+                    this.$notify.info({
+                        title: '消息',
+                        message: res.data
+                    });
+                }
+            },
+            sendMsg() {
+                this.ws.send(this.content)
+                console.log("发送成功")
+                this.content = ""
+            }
+        }
+    })
+
+</script>
+</body>
+</html>

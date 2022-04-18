@@ -38,6 +38,7 @@
         <module>boot-actuator</module>
         <module>boot-admin</module>
         <module>boot-redis</module>
+        <module>boot-websocket</module>
     </modules>
 
     <dependencies>
