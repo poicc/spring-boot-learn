@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css"/>
+    <title>SSE</title>
+    <style>
+        body {
+            background-color: #9fc1da;
+            display: flex;
+            width: 100vw;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @keyframes heart-pulse {
+            0% {
+                transform: scale(0);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+
+            70% {
+                transform: scale(0.65);
+            }
+            100% {
+                transform: scale(0);
+            }
+        }
+
+        .animated-fill-button {
+            padding: 10px;
+            border-radius: 4px;
+            background: #fff;
+            color: #49aaf8;
+            border: 1px solid #49aaf8;
+            cursor: pointer;
+            transition: 0.3s all ease-in-out;
+        }
+
+        .animated-fill-button:hover {
+            background: #49aaf8;
+            color: #fff;
+        }
+
+        #heart {
+            color: #9f7cbd;
+            font-size: 50px;
+            animation: heart-pulse 0.9s infinite ease-out;
+        }
+
+    </style>
+</head>
+<body>
+<div id="app">
+    <div v-if="!show">
+        <i class="fa fa-heart-o" id="heart"></i>
+    </div>
+    <button v-else class="animated-fill-button" @click="open">
+        连接EventSource
+    </button>
+    <!--    <div v-html="message"></div>-->
+</div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+<script>
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'end-end',
+        showConfirmButton: false,
+        timer: 10000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
+    const vm = new Vue({
+        el: "#app",
+        data() {
+            return {
+                es: null,
+                content: "",
+                message: "显示消息",
+                nickname: "",
+                show: true
+            }
+        },
+        created() {
+            // this.open()
+        },
+        methods: {
+            open() {
+                if ("EventSource" in window) {
+                    this.es = new EventSource('http://localhost:8888/server/info')
+                    this.es.onopen = () => {
+                        Swal.fire(
+                            '连接成功!',
+                            '您已成功连接SSE!',
+                            'success'
+                        )
+                    }
+                    this.es.onerror = (e) => {
+                        if (e.readyState === EventSource.CLOSED) {
+                            Swal.fire({
+                                icon: 'error',
+                                title: '连接关闭',
+                                text: 'Something went wrong!',
+                                footer: '<a href="">Why do I have this issue?</a>'
+                            })
+                        } else {
+                            console.log(e.readyState)
+                        }
+                    }
+
+                    this.es.onmessage = (res) => {
+                        this.show = false
+                        Toast.fire({
+                            icon: 'success',
+                            title: res.data
+                        })
+                        this.message += res.data + "<br/>"
+                    }
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: '没有sse',
+                        text: 'Something went wrong!',
+                        footer: '<a href="">Why do I have this issue?</a>'
+                    })
+                }
+            }
+        }
+    })
+
+</script>
+</body>
+</html>

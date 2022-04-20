@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+    <title>SSE</title>
+</head>
+<body>
+<div id="msg_from_server">
+</div>
+
+<script>
+    if(!!window.EventSource) {
+        let source = new EventSource('http://localhost:8888/server/info')
+        s= '';
+        source.addEventListener('open',function (e) {
+            console.log("连接打开.");
+        }, false)
+        source.addEventListener('message',function (e) {
+            s += e.data + "<br/>"
+            document.getElementById("msg_from_server").innerHTML = s;
+        })
+        source.addEventListener('error',function (e) {
+           if(e.readyState === EventSource.CLOSED) {
+               console.log("连接关闭")
+           } else {
+               console.log(e.readyState)
+           }
+        }, false)
+    } else {
+        alert(4)
+        console.log("没有sse")
+    }
+</script>
+</body>
+</html>
