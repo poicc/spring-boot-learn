@@ -28,11 +28,12 @@ public class MailService {
 
     /**
      * 发送文本邮件
-     * @param to 收件人
+     *
+     * @param to      收件人
      * @param subject 标题
      * @param content 内容
      */
-    public void sendSimpleMail(String to,String subject,String content) {
+    public void sendSimpleMail(String to, String subject, String content) {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom(fromEmail);
         message.setTo(to);
@@ -45,32 +46,50 @@ public class MailService {
     /**
      * 发送HTML邮件
      */
-    public void sendHtmlMail(String to,String subject,String content) throws MessagingException {
+    public void sendHtmlMail(String to, String subject, String content) throws MessagingException {
         //注意这里使用的是MimeMessage
         MimeMessage message = mailSender.createMimeMessage();
-        MimeMessageHelper helper = new MimeMessageHelper(message,true);
+        MimeMessageHelper helper = new MimeMessageHelper(message, true);
         helper.setFrom(fromEmail);
         helper.setTo(to);
         helper.setSubject(subject);
-        helper.setText(content,true);
+        helper.setText(content, true);
         mailSender.send(message);
     }
 
     /**
      * 发送带附件的邮件
      */
-    public void sendAttachmentsMail(String to, String subject, String content,String filePath) throws MessagingException {
+    public void sendAttachmentsMail(String to, String subject, String content, String filePath) throws MessagingException {
         MimeMessage message = mailSender.createMimeMessage();
-        MimeMessageHelper helper = new MimeMessageHelper(message,true);
+        MimeMessageHelper helper = new MimeMessageHelper(message, true);
         helper.setFrom(fromEmail);
         helper.setTo(to);
         helper.setSubject(subject);
-        helper.setText(content,true);
+        helper.setText(content, true);
         //添加附件资源
         FileSystemResource file = new FileSystemResource(new File(filePath));
         String fileName = filePath.substring(filePath.lastIndexOf(File.separator));
-        helper.addAttachment(fileName,file);
+        helper.addAttachment(fileName, file);
         mailSender.send(message);
 
     }
+
+    /**
+     * 发送正文中有静态资源的邮件
+     */
+    public void sendResourceMail(String to, String subject, String content, String rscPath, String rscId) throws MessagingException {
+        MimeMessage message = mailSender.createMimeMessage();
+        MimeMessageHelper helper = new MimeMessageHelper(message, true);
+        helper.setFrom(fromEmail);
+        helper.setTo(to);
+        helper.setSubject(subject);
+        helper.setText(content, true);
+        //添加内联附件，指定一个资源id:rscId
+        FileSystemResource res = new FileSystemResource(new File(rscPath));
+        helper.addInline(rscId, res);
+        mailSender.send(message);
+    }
+
 }
+

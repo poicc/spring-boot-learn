@@ -8,7 +8,14 @@ spring:
     job-store-type: JDBC #数据库存储quartz任务配置
     jdbc:
       initialize-schema: NEVER #⾃动初始化表结构，第⼀次启动的时候这⾥写always
-#  task:
+  freemarker:
+    cache: false # 缓存配置开发阶段应该配置为false 因为经常会改
+    suffix: .ftl # 模版文件后缀名
+    charset: UTF-8 # 文件编码
+    template-loader-path: classpath:/templates/
+
+
+  #  task:
 #    execution:
 #      pool:
 #        core-size: 8 #核心线程数
@@ -35,3 +42,12 @@ spring:
     properties.mail.smtp.ssl.enable: true
     default-encoding: utf-8
 #    from: xx@126.com
+
+mybatis:
+  #  指定相应接口对应的xml文件所在目录
+  mapper-locations: classpath:mapper/*.xml
+  #  实体类所在包
+  type-aliases-package: com.crq.boot.entity
+  configuration:
+    # mybatis开启驼峰式命名
+    map-underscore-to-camel-case: true

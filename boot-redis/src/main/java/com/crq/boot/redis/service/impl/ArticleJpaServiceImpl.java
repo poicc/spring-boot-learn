@@ -42,9 +42,7 @@ public class ArticleJpaServiceImpl implements ArticleService {
     @Caching(evict = {
             @CacheEvict(value = CACHE_OBJECT,key = CACHE_LIST_KEY), //删除lst集合缓存
             @CacheEvict(value = CACHE_OBJECT,key = "#id") //删除单挑记录缓存
-    }
-
-    )
+    })
     public void deleteById(int id){
         articleRepository.deleteById(id);
     }

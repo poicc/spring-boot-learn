@@ -39,6 +39,7 @@
         <module>boot-admin</module>
         <module>boot-redis</module>
         <module>boot-websocket</module>
+        <module>boot-verifycode</module>
     </modules>
 
     <dependencies>

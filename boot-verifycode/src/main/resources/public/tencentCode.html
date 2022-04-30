@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+    <title>腾讯云实现图形验证码</title>
+</head>
+<body>
+<form id="form" method="post">
+    <input type="button" value="登录" id="btnOK" onclick="validate()"/>
+</form>
+
+<script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+<script>
+    function validate() {
+        const validateCode =  new TencentCaptcha("2000358606",function (res) {
+            if(res.ret === 0) {
+                alert("验证正确")
+            } else {
+                alert("验证出错")
+            }
+        })
+        validateCode.show()
+    }
+</script>
+</body>
+</html>
